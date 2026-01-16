@@ -1,0 +1,227 @@
+/* ADA Aesthetic System - Tron meets Excalidraw */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  /* ADA Color System */
+  --color-bg: #1A202C;           /* Deep Slate */
+  --color-bg-grid: #2D3748;      /* Dark Grid overlay */
+  --color-lines: #FFFFFF;        /* Bright White sketch lines */
+  --color-lines-secondary: #E2E8F0; /* Light Gray secondary lines */
+  --color-accent-orange: #FF6B35; /* Neon Orange - primary accent */
+  --color-accent-coral: #FF8C61;  /* Softer warmth variant */
+  --color-accent-cyan: #00D9FF;   /* Cyan Glow - digital accent */
+  --color-accent-blue: #0099FF;   /* Electric Blue secondary */
+  --color-slate: #4A5568;         /* Neutral technical */
+
+  /* Typography */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  font-family: var(--font-display);
+  line-height: 1.6;
+  font-weight: 400;
+
+  color: var(--color-lines);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Typography Scale */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-lines);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-lines);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-lines-secondary);
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-lines-secondary);
+}
+
+code {
+  font-family: var(--font-code);
+  background: rgba(255, 107, 53, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--color-accent-orange);
+}
+
+/* Links */
+a {
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-orange);
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.875rem 2rem;
+  border: 2px solid var(--color-accent-orange);
+  background: transparent;
+  color: var(--color-accent-orange);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: var(--color-accent-orange);
+  color: var(--color-bg);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Glow effects */
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent-orange);
+  color: var(--color-bg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-orange);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes circuit-flow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Utility Classes */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
